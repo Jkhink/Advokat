@@ -12,46 +12,45 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue-50: #EBF3FF;
-      --blue-100: #C2D9FF;
-      --blue-400: #2B7FFF;
-      --blue-600: #1A5FCC;
-      --blue-800: #0D3D8A;
-      --blue-900: #062050;
-      --purple-50: #EBF3FF;
-      --purple-400: #2B7FFF;
-      --purple-600: #1A5FCC;
-      --purple-800: #0D3D8A;
-      --gray-50: #F1EFE8;
-      --gray-100: #D3D1C7;
-      --gray-400: #888780;
-      --gray-600: #5F5E5A;
-      --primary: #2B7FFF;
-      --primary-light: #6AAAFF;
-      --primary-gradient: linear-gradient(135deg, #2B7FFF 0%, #1A5FCC 100%);
-      --accent: #2B7FFF;
+      --blue-50:     #eff6ff;
+      --blue-300:    #93c5fd;
+      --blue-400:    #60a5fa;
+      --blue-500:    #3b82f6;
+      --blue-600:    #2563eb;
+      --blue-700:    #1d4ed8;
+      --blue-800:    #1e40af;
+      --blue-900:    #1e3a8a;
+      --gray-200:    #e5e7eb;
+      --gray-300:    #d1d5db;
+      --gray-400:    #9ca3af;
+      --gray-500:    #6b7280;
+      --gray-700:    #374151;
+      --gray-900:    #111827;
+      --slate-900:   #0f172a;
+      --green-300:   #86efac;
+      --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     }
 
     html, body { height: 100%; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f7f8fc;
       display: flex;
       align-items: stretch;
       min-height: 100vh;
-      color: #0a1628;
+      color: var(--slate-900);
     }
 
-    /* ─── LEFT PANEL ─── */
+    /* ─── LEFT PANEL (40%) ─── */
     .panel-left {
-      width: 52%;
-      background: #1554CC;
+      width: 40%;
+      background: var(--blue-700);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 44px 52px;
+      align-items: center;
+      padding: 44px 40px;
       overflow: hidden;
     }
 
@@ -65,8 +64,10 @@
     .left-logo {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       position: relative;
+      width: 100%;
     }
     .left-logo .logo-icon {
       width: 38px; height: 38px;
@@ -75,11 +76,16 @@
       display: flex; align-items: center; justify-content: center;
     }
     .left-logo .logo-icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .left-logo span {
-      font-size: 20px; font-weight: 700; color: white; letter-spacing: -0.3px;
-    }
+    .left-logo span { font-size: 20px; font-weight: 700; color: white; letter-spacing: -0.3px; }
 
-    .left-content { position: relative; }
+    .left-content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
     .left-badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -92,30 +98,27 @@
       margin-bottom: 28px;
       backdrop-filter: blur(4px);
     }
-    .left-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #7EE8A2; }
+    .left-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-300); flex-shrink: 0; }
 
     .left-headline {
-      font-family: 'Inter', sans-serif;
-      font-size: 40px; font-weight: 800;
+      font-size: 34px; font-weight: 800;
       color: white;
-      line-height: 1.15;
+      line-height: 1.18;
       margin-bottom: 20px;
-      letter-spacing: -1.5px;
+      letter-spacing: -1.2px;
     }
-    .left-headline em { font-style: normal; color: rgba(255,255,255,0.65); font-weight: 300; letter-spacing: -0.5px; }
+    .left-headline em { font-style: normal; color: rgba(255,255,255,0.65); font-weight: 300; }
 
     .left-desc {
-      font-size: 15px; font-weight: 400;
+      font-size: 14px; font-weight: 400;
       color: rgba(255,255,255,0.72);
       line-height: 1.65;
-      max-width: 380px;
+      max-width: 300px;
       margin-bottom: 44px;
     }
 
-    .feature-list { display: flex; flex-direction: column; gap: 14px; }
-    .feature-item {
-      display: flex; align-items: flex-start; gap: 12px;
-    }
+    .feature-list { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+    .feature-item { display: flex; align-items: flex-start; gap: 12px; text-align: left; }
     .feature-item .fi-icon {
       width: 36px; height: 36px; min-width: 36px;
       background: rgba(255,255,255,0.13);
@@ -123,129 +126,69 @@
       display: flex; align-items: center; justify-content: center;
     }
     .feature-item .fi-icon svg { width: 17px; height: 17px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .feature-item .fi-text strong {
-      display: block; font-size: 13px; font-weight: 600; color: white; margin-bottom: 2px;
-    }
+    .feature-item .fi-text strong { display: block; font-size: 13px; font-weight: 600; color: white; margin-bottom: 2px; }
     .feature-item .fi-text span { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.4; }
 
-    .left-bottom {
-      position: relative;
-      display: flex; align-items: center; gap: 16px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-    }
-    .stat-box { text-align: center; }
-    .stat-box .stat-num {
-      font-size: 22px; font-weight: 800; color: white; line-height: 1;
-    }
-    .stat-box .stat-label {
-      font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 3px; font-weight: 400;
-    }
-    .stat-sep { width: 1px; height: 32px; background: rgba(255,255,255,0.2); }
-
-    /* ─── RIGHT PANEL ─── */
+    /* ─── RIGHT PANEL (60%) ─── */
     .panel-right {
-      flex: 1;
+      width: 60%;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 48px 40px;
+      background: white;
     }
 
-    .auth-card {
-      width: 100%;
-      max-width: 420px;
-    }
+    .auth-card { width: 100%; max-width: 440px; }
 
     .auth-header { margin-bottom: 36px; }
     .auth-header h2 {
-      font-size: 26px; font-weight: 700;
-      color: #0a1628;
-      letter-spacing: -0.4px;
-      margin-bottom: 8px;
+      font-size: 28px; font-weight: 700;
+      color: var(--slate-900);
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
     }
-    .auth-header p {
-      font-size: 14px; color: #6b7280; font-weight: 400; line-height: 1.5;
-    }
-    .auth-header p a { color: var(--primary); text-decoration: none; font-weight: 600; }
-    .auth-header p a:hover { text-decoration: underline; }
-
-    .tabs {
-      display: flex;
-      gap: 4px;
-      background: #f0f4ff;
-      border-radius: 10px;
-      padding: 4px;
-      margin-bottom: 32px;
-    }
-    .tab-btn {
-      flex: 1; padding: 9px 12px;
-      font-size: 13px; font-weight: 600;
-      border: none; cursor: pointer;
-      border-radius: 7px;
-      transition: all 0.2s;
-      background: transparent;
-      color: #888;
-    }
-    .tab-btn.active {
-      background: white;
-      color: #0a1628;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
+    .auth-header p { font-size: 14px; color: var(--gray-500); }
 
     .form-group { margin-bottom: 18px; }
-    .form-group label {
-      display: block; font-size: 13px; font-weight: 600;
-      color: #374151; margin-bottom: 7px;
-    }
-    .input-wrap {
-      position: relative;
-    }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-700); margin-bottom: 7px; }
+    .input-wrap { position: relative; }
     .input-wrap .inp-icon {
       position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
-      color: #9ca3af;
+      color: var(--gray-400);
       display: flex; align-items: center; justify-content: center;
     }
     .input-wrap .inp-icon svg { width: 16px; height: 16px; }
     .input-wrap input {
       width: 100%; height: 46px;
-      border: 1.5px solid #e5e7eb;
+      border: 1.5px solid var(--gray-200);
       border-radius: 10px;
       padding: 0 14px 0 40px;
       font-size: 14px; font-family: 'Inter', sans-serif;
-      color: #111827;
-      background: white;
-      outline: none;
+      color: var(--gray-900);
+      background: white; outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .input-wrap input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(43, 127, 255, 0.12);
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
     }
-    .input-wrap input::placeholder { color: #c0c4cc; }
+    .input-wrap input::placeholder { color: var(--gray-300); }
     .eye-btn {
       position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
-      background: none; border: none; cursor: pointer; color: #9ca3af;
+      background: none; border: none; cursor: pointer; color: var(--gray-400);
       display: flex; align-items: center;
     }
     .eye-btn svg { width: 16px; height: 16px; }
-    .eye-btn:hover { color: var(--primary); }
+    .eye-btn:hover { color: var(--blue-500); }
 
     .form-options {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
-    .checkbox-label {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 13px; color: #6b7280; cursor: pointer;
-    }
-    .checkbox-label input[type=checkbox] {
-      width: 15px; height: 15px; accent-color: var(--primary); cursor: pointer;
-    }
-    .forgot-link {
-      font-size: 13px; font-weight: 600;
-      color: var(--primary); text-decoration: none;
-    }
+    .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-500); cursor: pointer; }
+    .checkbox-label input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--blue-500); cursor: pointer; }
+    .forgot-link { font-size: 13px; font-weight: 600; color: var(--blue-600); text-decoration: none; }
     .forgot-link:hover { text-decoration: underline; }
 
     .btn-submit {
@@ -257,71 +200,12 @@
       letter-spacing: 0.2px;
       display: flex; align-items: center; justify-content: center; gap: 8px;
       transition: opacity 0.2s, transform 0.15s;
-      box-shadow: 0 4px 16px rgba(43, 127, 255, 0.35);
+      box-shadow: 0 4px 16px rgba(59,130,246,0.35);
     }
     .btn-submit:hover { opacity: 0.93; transform: translateY(-1px); }
     .btn-submit:active { transform: translateY(0); }
     .btn-submit svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .divider {
-      display: flex; align-items: center; gap: 12px;
-      margin: 24px 0;
-    }
-    .divider::before, .divider::after {
-      content: ''; flex: 1; height: 1px; background: #e5e7eb;
-    }
-    .divider span { font-size: 12px; color: #9ca3af; font-weight: 500; white-space: nowrap; }
-
-    .btn-esia {
-      width: 100%; height: 46px;
-      border: 1.5px solid #e5e7eb;
-      border-radius: 10px;
-      background: white;
-      font-size: 13px; font-weight: 600;
-      color: #374151;
-      cursor: pointer; font-family: 'Inter', sans-serif;
-      display: flex; align-items: center; justify-content: center; gap: 9px;
-      transition: border-color 0.2s, background 0.2s;
-      margin-bottom: 12px;
-    }
-    .btn-esia:hover { border-color: var(--primary); background: #EBF3FF; }
-    .btn-esia .esia-badge {
-      background: #2563eb; color: white;
-      font-size: 10px; font-weight: 800;
-      padding: 2px 6px; border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .btn-ecp {
-      width: 100%; height: 46px;
-      border: 1.5px solid #e5e7eb;
-      border-radius: 10px;
-      background: white;
-      font-size: 13px; font-weight: 600;
-      color: #374151;
-      cursor: pointer; font-family: 'Inter', sans-serif;
-      display: flex; align-items: center; justify-content: center; gap: 9px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-ecp:hover { border-color: #059669; background: #f0fdf4; }
-    .btn-ecp .ecp-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #10b981;
-    }
-
-    .auth-footer {
-      margin-top: 28px;
-      text-align: center;
-      font-size: 12px; color: #9ca3af; line-height: 1.6;
-    }
-    .auth-footer a { color: var(--primary); text-decoration: none; font-weight: 500; }
-    .auth-footer a:hover { text-decoration: underline; }
-
-    /* register panel */
-    .reg-panel { display: none; }
-    .reg-panel.visible { display: block; }
-    .login-panel { display: block; }
-    .login-panel.hidden { display: none; }
-
-    /* animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -329,11 +213,9 @@
     .panel-right { animation: fadeUp 0.55s ease both; }
     .panel-left .left-content { animation: fadeUp 0.55s 0.1s ease both; }
 
-    /* ─── responsive ─── */
-    @media (max-width: 900px) {
+    @media (max-width: 860px) {
       .panel-left { display: none; }
-      body { justify-content: center; background: white; }
-      .panel-right { padding: 32px 24px; }
+      .panel-right { width: 100%; }
     }
   </style>
 </head>
@@ -344,9 +226,7 @@
     <canvas id="leftCanvas"></canvas>
 
     <div class="left-logo">
-      <div class="logo-icon">
-        <i data-lucide="scale"></i>
-      </div>
+      <div class="logo-icon"><i data-lucide="scale"></i></div>
       <span>AI Адвокат</span>
     </div>
 
@@ -398,27 +278,8 @@
       </div>
     </div>
 
-    <div class="left-bottom">
-      <div class="stat-box">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">шаблонов</div>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat-box">
-        <div class="stat-num">ЭЦП</div>
-        <div class="stat-label">поддержка</div>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat-box">
-        <div class="stat-num">24/7</div>
-        <div class="stat-label">доступность</div>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat-box">
-        <div class="stat-num">ИИ</div>
-        <div class="stat-label">проверено</div>
-      </div>
-    </div>
+    <!-- spacer to balance flex layout -->
+    <div style="height:38px;position:relative;"></div>
   </div>
 
   <!-- RIGHT PANEL -->
@@ -426,123 +287,49 @@
     <div class="auth-card">
 
       <div class="auth-header">
-        <h2>Добро пожаловать</h2>
-        <p>Нет аккаунта? <a href="#" id="goRegister">Зарегистрироваться бесплатно</a></p>
+        <h2>Авторизация</h2>
+        <p>Введите данные вашего аккаунта</p>
       </div>
 
-      <div class="tabs">
-        <button class="tab-btn active" id="tabLogin">Войти</button>
-        <button class="tab-btn" id="tabRegister">Регистрация</button>
+      <div class="form-group">
+        <label>Email или ИИН</label>
+        <div class="input-wrap">
+          <span class="inp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          <input type="text" placeholder="example@email.com" autocomplete="username" />
+        </div>
       </div>
 
-      <!-- LOGIN -->
-      <div class="login-panel" id="loginPanel">
-        <div class="form-group">
-          <label>Email или ИИН</label>
-          <div class="input-wrap">
-            <span class="inp-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </span>
-            <input type="text" placeholder="example@email.com" autocomplete="username" />
-          </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <div class="input-wrap">
+          <span class="inp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <input type="password" id="passInput" placeholder="Введите пароль" autocomplete="current-password" />
+          <button class="eye-btn" onclick="togglePass('passInput', this)" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
         </div>
-
-        <div class="form-group">
-          <label>Пароль</label>
-          <div class="input-wrap">
-            <span class="inp-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
-            <input type="password" id="passInput" placeholder="Введите пароль" autocomplete="current-password" />
-            <button class="eye-btn" onclick="togglePass('passInput', this)" type="button">
-              <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="form-options">
-          <label class="checkbox-label">
-            <input type="checkbox" checked />
-            Запомнить меня
-          </label>
-          <a href="#" class="forgot-link">Забыли пароль?</a>
-        </div>
-
-        <button class="btn-submit" type="button">
-          <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-          Войти в систему
-        </button>
-
-        <div class="divider"><span>или войти через</span></div>
-
-        <button class="btn-esia" type="button">
-          <span class="esia-badge">ЕСИА</span>
-          Войти через Egov / ЕСИА
-        </button>
-
-        <button class="btn-ecp" type="button">
-          <span class="ecp-dot"></span>
-          Войти через ЭЦП (цифровая подпись)
-        </button>
       </div>
 
-      <!-- REGISTER -->
-      <div class="reg-panel" id="regPanel">
-        <div class="form-group">
-          <label>Полное имя</label>
-          <div class="input-wrap">
-            <span class="inp-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </span>
-            <input type="text" placeholder="Иванов Иван Иванович" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <div class="input-wrap">
-            <span class="inp-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </span>
-            <input type="email" placeholder="example@email.com" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Пароль</label>
-          <div class="input-wrap">
-            <span class="inp-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
-            <input type="password" id="regPassInput" placeholder="Минимум 8 символов" autocomplete="new-password" />
-            <button class="eye-btn" onclick="togglePass('regPassInput', this)" type="button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="form-options" style="margin-bottom: 24px;">
-          <label class="checkbox-label">
-            <input type="checkbox" />
-            Я принимаю <a href="#" style="color: var(--primary); margin-left: 3px;">условия использования</a>
-          </label>
-        </div>
-        <button class="btn-submit" type="button">
-          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6"/></svg>
-          Создать аккаунт
-        </button>
-        <div class="divider"><span>или через</span></div>
-        <button class="btn-esia" type="button">
-          <span class="esia-badge">ЕСИА</span>
-          Зарегистрироваться через Egov
-        </button>
+      <div class="form-options">
+        <label class="checkbox-label"><input type="checkbox" checked />Запомнить меня</label>
+        <a href="#" class="forgot-link">Забыли пароль?</a>
       </div>
 
-      <div class="auth-footer">
-        Продолжая, вы соглашаетесь с <a href="#">Политикой конфиденциальности</a><br/>
-        и <a href="#">Условиями использования</a> сервиса AI Адвокат
-      </div>
+      <button class="btn-submit" type="button">
+        <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        Войти в систему
+      </button>
+
     </div>
   </div>
 
   <script>
+    lucide.createIcons();
+
     function togglePass(id, btn) {
       const inp = document.getElementById(id);
       const isPass = inp.type === 'password';
@@ -552,162 +339,108 @@
         : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
     }
 
-    function switchTab(showLogin) {
-      const lp = document.getElementById('loginPanel');
-      const rp = document.getElementById('regPanel');
-      const tl = document.getElementById('tabLogin');
-      const tr = document.getElementById('tabRegister');
-      if (showLogin) {
-        lp.classList.remove('hidden'); lp.style.display = 'block';
-        rp.classList.remove('visible'); rp.style.display = 'none';
-        tl.classList.add('active'); tr.classList.remove('active');
-        document.querySelector('.auth-header h2').textContent = 'Добро пожаловать';
-        document.querySelector('.auth-header p').innerHTML = 'Нет аккаунта? <a href="#" id="goRegister">Зарегистрироваться бесплатно</a>';
-        document.getElementById('goRegister').addEventListener('click', e => { e.preventDefault(); switchTab(false); });
-      } else {
-        lp.style.display = 'none';
-        rp.style.display = 'block';
-        tl.classList.remove('active'); tr.classList.add('active');
-        document.querySelector('.auth-header h2').textContent = 'Создать аккаунт';
-        document.querySelector('.auth-header p').innerHTML = 'Уже есть аккаунт? <a href="#" id="goLogin">Войти</a>';
-        document.getElementById('goLogin').addEventListener('click', e => { e.preventDefault(); switchTab(true); });
-      }
-    }
-
-    document.getElementById('tabLogin').addEventListener('click', () => switchTab(true));
-    document.getElementById('tabRegister').addEventListener('click', () => switchTab(false));
-    document.getElementById('goRegister').addEventListener('click', e => { e.preventDefault(); switchTab(false); });
-
-    /* ── Canvas animation ── */
+    /* ── Canvas — Tailwind blue palette ── */
     const canvas = document.getElementById('leftCanvas');
     const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
+    function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
     resize();
     window.addEventListener('resize', resize);
-
     const W = () => canvas.width;
     const H = () => canvas.height;
 
-    /* Blobs */
     const blobs = [
-      { x: 0.2,  y: 0.25, r: 0.38, vx: 0.00012,  vy: 0.00008,  color: [0,   120, 255] },
-      { x: 0.75, y: 0.15, r: 0.30, vx: -0.00009,  vy: 0.00011,  color: [80,  160, 255] },
-      { x: 0.55, y: 0.75, r: 0.42, vx: 0.00007,   vy: -0.00013, color: [10,  60,  180] },
-      { x: 0.85, y: 0.60, r: 0.28, vx: -0.00014,  vy: 0.00006,  color: [100, 180, 255] },
-      { x: 0.15, y: 0.80, r: 0.25, vx: 0.00011,   vy: 0.00009,  color: [30,  90,  210] },
+      { x:0.20, y:0.25, r:0.38, vx: 0.00012, vy: 0.00008,  color:[59, 130,246] },
+      { x:0.75, y:0.15, r:0.30, vx:-0.00009, vy: 0.00011,  color:[96, 165,250] },
+      { x:0.55, y:0.75, r:0.42, vx: 0.00007, vy:-0.00013,  color:[30,  64,175] },
+      { x:0.85, y:0.60, r:0.28, vx:-0.00014, vy: 0.00006,  color:[147,197,253] },
+      { x:0.15, y:0.80, r:0.25, vx: 0.00011, vy: 0.00009,  color:[29,  78,216] },
     ];
 
-    /* Constellation nodes */
     const NODE_COUNT = 55;
     const nodes = Array.from({ length: NODE_COUNT }, () => ({
-      x: Math.random(),
-      y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00018,
-      vy: (Math.random() - 0.5) * 0.00018,
-      size: Math.random() * 1.8 + 0.6,
-      alpha: Math.random() * 0.45 + 0.15,
-      phase: Math.random() * Math.PI * 2,
+      x: Math.random(), y: Math.random(),
+      vx: (Math.random()-0.5)*0.00018, vy: (Math.random()-0.5)*0.00018,
+      size: Math.random()*1.8+0.6, alpha: Math.random()*0.45+0.15,
+      phase: Math.random()*Math.PI*2,
     }));
     const CONNECT_DIST = 0.22;
 
-    /* Aurora curtains — vertical shimmer bands */
     const auroras = [
-      { cx: 0.18, speed: 0.00035, width: 0.22, color: [43, 127, 255],  alpha: 0.10 },
-      { cx: 0.62, speed: -0.00028, width: 0.28, color: [100, 180, 255], alpha: 0.08 },
-      { cx: 0.88, speed: 0.00042, width: 0.18, color: [20, 80,  200],  alpha: 0.09 },
+      { cx:0.18, speed: 0.00035, width:0.22, color:[59, 130,246], alpha:0.10 },
+      { cx:0.62, speed:-0.00028, width:0.28, color:[147,197,253], alpha:0.08 },
+      { cx:0.88, speed: 0.00042, width:0.18, color:[29,  78,216],  alpha:0.09 },
     ];
-    auroras.forEach(a => a._phase = Math.random() * Math.PI * 2);
+    auroras.forEach(a => a._phase = Math.random()*Math.PI*2);
 
     let t = 0;
-
     function draw() {
       const w = W(), h = H();
-      ctx.clearRect(0, 0, w, h);
+      ctx.clearRect(0,0,w,h);
 
-      /* Base gradient */
-      const base = ctx.createLinearGradient(0, 0, w * 0.5, h);
-      base.addColorStop(0,   '#1A60E8');
-      base.addColorStop(0.5, '#1248C4');
-      base.addColorStop(1,   '#0A2E8A');
-      ctx.fillStyle = base;
-      ctx.fillRect(0, 0, w, h);
+      const base = ctx.createLinearGradient(0,0,w*0.5,h);
+      base.addColorStop(0,   '#2563eb');
+      base.addColorStop(0.5, '#1d4ed8');
+      base.addColorStop(1,   '#1e3a8a');
+      ctx.fillStyle = base; ctx.fillRect(0,0,w,h);
 
-      /* Animated blobs */
       blobs.forEach(b => {
-        b.x += b.vx; b.y += b.vy;
-        if (b.x < -0.1 || b.x > 1.1) b.vx *= -1;
-        if (b.y < -0.1 || b.y > 1.1) b.vy *= -1;
-        const gx = b.x * w, gy = b.y * h, gr = b.r * Math.max(w, h);
-        const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, gr);
-        const [r, g2, bl] = b.color;
-        g.addColorStop(0,   `rgba(${r},${g2},${bl},0.28)`);
-        g.addColorStop(0.5, `rgba(${r},${g2},${bl},0.09)`);
-        g.addColorStop(1,   `rgba(${r},${g2},${bl},0)`);
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, w, h);
+        b.x+=b.vx; b.y+=b.vy;
+        if(b.x<-0.1||b.x>1.1) b.vx*=-1;
+        if(b.y<-0.1||b.y>1.1) b.vy*=-1;
+        const gx=b.x*w, gy=b.y*h, gr=b.r*Math.max(w,h);
+        const g=ctx.createRadialGradient(gx,gy,0,gx,gy,gr);
+        const [r,g2,bl]=b.color;
+        g.addColorStop(0,  `rgba(${r},${g2},${bl},0.28)`);
+        g.addColorStop(0.5,`rgba(${r},${g2},${bl},0.09)`);
+        g.addColorStop(1,  `rgba(${r},${g2},${bl},0)`);
+        ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
       });
 
-      /* Aurora vertical curtains */
       auroras.forEach(a => {
-        a._phase += a.speed;
-        const cx = (a.cx + Math.sin(a._phase) * 0.08) * w;
-        const hw = a.width * w * (0.85 + Math.sin(a._phase * 1.7) * 0.15);
-        const [r, g, b] = a.color;
-        const ag = ctx.createLinearGradient(cx - hw, 0, cx + hw, 0);
+        a._phase+=a.speed;
+        const cx=(a.cx+Math.sin(a._phase)*0.08)*w;
+        const hw=a.width*w*(0.85+Math.sin(a._phase*1.7)*0.15);
+        const [r,g,b]=a.color;
+        const ag=ctx.createLinearGradient(cx-hw,0,cx+hw,0);
         ag.addColorStop(0,    `rgba(${r},${g},${b},0)`);
-        ag.addColorStop(0.35, `rgba(${r},${g},${b},${a.alpha * (0.7 + Math.sin(a._phase * 2.3) * 0.3)})`);
+        ag.addColorStop(0.35, `rgba(${r},${g},${b},${a.alpha*(0.7+Math.sin(a._phase*2.3)*0.3)})`);
         ag.addColorStop(0.5,  `rgba(${r},${g},${b},${a.alpha})`);
-        ag.addColorStop(0.65, `rgba(${r},${g},${b},${a.alpha * (0.7 + Math.sin(a._phase * 2.3) * 0.3)})`);
+        ag.addColorStop(0.65, `rgba(${r},${g},${b},${a.alpha*(0.7+Math.sin(a._phase*2.3)*0.3)})`);
         ag.addColorStop(1,    `rgba(${r},${g},${b},0)`);
-        ctx.fillStyle = ag;
-        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle=ag; ctx.fillRect(0,0,w,h);
       });
 
-      /* Constellation — lines first */
-      for (let i = 0; i < NODE_COUNT; i++) {
-        for (let j = i + 1; j < NODE_COUNT; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECT_DIST) {
-            const fade = 1 - dist / CONNECT_DIST;
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x * w, nodes[i].y * h);
-            ctx.lineTo(nodes[j].x * w, nodes[j].y * h);
-            ctx.strokeStyle = `rgba(255,255,255,${fade * 0.18})`;
-            ctx.lineWidth = fade * 0.8;
-            ctx.stroke();
-          }
+      for(let i=0;i<NODE_COUNT;i++) for(let j=i+1;j<NODE_COUNT;j++) {
+        const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<CONNECT_DIST) {
+          const fade=1-dist/CONNECT_DIST;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x*w,nodes[i].y*h);
+          ctx.lineTo(nodes[j].x*w,nodes[j].y*h);
+          ctx.strokeStyle=`rgba(255,255,255,${fade*0.18})`;
+          ctx.lineWidth=fade*0.8; ctx.stroke();
         }
       }
 
-      /* Constellation — dots */
       nodes.forEach(n => {
-        n.x += n.vx; n.y += n.vy;
-        if (n.x < 0) n.x = 1; if (n.x > 1) n.x = 0;
-        if (n.y < 0) n.y = 1; if (n.y > 1) n.y = 0;
-        const pulse = 0.6 + Math.sin(t * 0.015 + n.phase) * 0.4;
+        n.x+=n.vx; n.y+=n.vy;
+        if(n.x<0) n.x=1; if(n.x>1) n.x=0;
+        if(n.y<0) n.y=1; if(n.y>1) n.y=0;
+        const pulse=0.6+Math.sin(t*0.015+n.phase)*0.4;
         ctx.beginPath();
-        ctx.arc(n.x * w, n.y * h, n.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${n.alpha * pulse})`;
-        ctx.fill();
+        ctx.arc(n.x*w,n.y*h,n.size,0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,255,255,${n.alpha*pulse})`; ctx.fill();
       });
 
-      /* Shimmer streak */
-      const streakX = ((Math.sin(t * 0.0004) + 1) / 2) * w * 1.4 - w * 0.2;
-      const sg = ctx.createLinearGradient(streakX - 140, 0, streakX + 140, h);
-      sg.addColorStop(0,   'rgba(255,255,255,0)');
-      sg.addColorStop(0.5, 'rgba(255,255,255,0.05)');
-      sg.addColorStop(1,   'rgba(255,255,255,0)');
-      ctx.fillStyle = sg;
-      ctx.fillRect(0, 0, w, h);
+      const streakX=((Math.sin(t*0.0004)+1)/2)*w*1.4-w*0.2;
+      const sg=ctx.createLinearGradient(streakX-140,0,streakX+140,h);
+      sg.addColorStop(0,'rgba(255,255,255,0)');
+      sg.addColorStop(0.5,'rgba(255,255,255,0.05)');
+      sg.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.fillStyle=sg; ctx.fillRect(0,0,w,h);
 
-      t++;
-      requestAnimationFrame(draw);
+      t++; requestAnimationFrame(draw);
     }
     draw();
   </script>
